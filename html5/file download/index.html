@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <a download="test" href="images/dimension.jpg">Download Source</a> <br />
+    <button onclick="btnOnClick()">Download with JS</button>
+    <script>
+        //function exportToCSV() {
+        //    var csv = "Abc, DEF, GHI, JKLM";
+        //    csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
+        //    $(this).attr({ 'href': csvData, 'target': '_blank' });
+        //}
+        //$("#btnExport ").on('click', function (event) {
+        //    exportToCSV.apply();
+        //});
+
+        function btnOnClick() {
+            var fileName = "data.csv";
+            var text = "Abc, DEF, GHI, JKLM";
+            download(fileName, text);
+        }
+
+        function download(filename, text) {
+            var pom = document.createElement('a');
+            pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            pom.setAttribute('download', filename);
+            if (document.createEvent) {
+                var event = document.createEvent('MouseEvents');
+                event.initEvent('click', true, true);
+                pom.dispatchEvent(event);
+            }
+            else {
+                pom.click();
+            }
+        }
+    </script>
+</body>
+</html>
