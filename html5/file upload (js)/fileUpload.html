@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html>
+<head></head>
+<body>
+  <form>
+    <!--<input type="file" id="images" accept="*.png" multiple><br>
+    <img id="img">
+    <input type="button" value="display" onclick="showDetail()">-->
+    <input type="file" id="input">
+    <img id="img">
+  </form>
+
+  <script>
+    var showDetail = function () {
+      var imageEle = document.getElementById("images");
+      var fileList = imageEle.files;
+      for (var i = 0; i < fileList.length; i++) {
+        var file = fileList[i];
+        var div = document.createElement("div");
+        div.innerText = "Numer" + (i + 1) + " file name is " + file.name + " file type is " + file.type;
+        document.body.appendChild(div);
+      };
+    }
+
+    document.getElementById("input").addEventListener("change", function () {
+      var fileReader = new FileReader();
+      fileReader.onloadend = function (e) {
+        document.getElementById("img").src = e.target.result;
+      };
+      fileReader.readAsDataURL(this.files[0]);
+    }, false);
+  </script>
+</body>
+
+</html>
