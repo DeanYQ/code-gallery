@@ -7,30 +7,20 @@
   <script>
     var db;
 
-    function DBEngine(name, ver) {
+    function DBEngine(name) {
       this.name = name;
-      this.ver = ver;
+      this.ver = null;
     }
 
-    DBEngine.prototype.init = function (callback) {
-      var request = indexedDB.open(this.name, this.ver);
-      request.onupgradeneeded = function (e) {
-        console.debug("init db onupgradeneeded...");
-        storeName = "table1";
-        db = e.currentTarget.result;
-        if (db.objectStoreNames.contains(storeName)) {
-          db.deleteObjectStore(storeName);
-        }
-        db.createObjectStore(storeName, { keyPath: "name" });
-        store = new DBStore(storeName);
-      }
+    DBEngine.prototype.init = function () {
+      var request = indexedDB.open(this.name);
 
       request.onsuccess = function (e) {
         // Better use "this" than "req" to get the result to avoid problems with
         // garbage collection.
         // db = req.result;
         db = this.result;
-        var version = db.version.
+        this.ver = db.version;
         console.debug("init db DONE!");
       }
 
@@ -40,13 +30,26 @@
       }
     }
 
-    DBEngine.prototype.fetchStore = function (storeName) {
-      if (db.objectStoreNames.contains(storeName)) {
-        return new DBStore(storeName);
-      } else {
-
+    DBEngine.prototype.upgrade = function (upgradeCallback) {
+      var upgradeVer = this.ver + 1;
+      var request = indexedDB.open(this.name, upgradeVer);
+      request.onupgradeneeded = function (e) {
+        console.debug("init db onupgradeneeded...");
+        db = e.currentTarget.result;
+        if (upgradeCallback != undefined && upgradeCallback != null) {
+          upgradeCallback(db);
+        }
       }
-      db.createObjectStore(storeName, { keyPath: "name" });
+    }
+
+    DBEngine.prototype.fetchStore = function (storeName) {
+      if (!db.objectStoreNames.contains(storeName)) {
+        // upgrade the db version.
+        this.upgrade(function (database) {
+          database.createObjectStore(storeName, { keyPath: "name" });
+        });
+      }
+      return new DBStore(storeName);
     }
 
     function DBStore(name) {
@@ -70,8 +73,7 @@
     }
 
     DBStore.prototype.update = function (key, value) {
-      //var tran = this.initTran("readwrite");
-      var tran = db.transaction([this.name], "readwrite");
+      var tran = this.initTran("readwrite");
       var request = tran.objectStore(this.name).add(value, key);
       request.onerror = function (e) {
         console.debug("~update key:" + key + "failure.");
@@ -116,9 +118,7 @@
     }
 
     function createStore() {
-      //store = engine.createStore("table1");
-      engine = new DBEngine("mydatabase1", 6);
-      engine.init();
+      store = engine.fetchStore("table1");
     }
 
     function addImage() {
@@ -148,7 +148,7 @@
   <image></image><button onclick="addImage()">Add image</button><br>
   <button onclick="deleteImage()">Delete image</button><br>
   <button onclick="updateImage()">Change image</button><br>
-  <button onclick="">Get image</button><br>
+  <button onclick="getImage()">Get image</button><br>
   <img id="img"><br>
 
   <script>
