@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Index DB Demo</title>
+  <meta charset="utf-8">
+  <script>
+    var db;
+
+    function DBEngine(name, ver) {
+      this.name = name;
+      this.ver = ver;
+    }
+
+    DBEngine.prototype.init = function (callback) {
+      var request = indexedDB.open(this.name, this.ver);
+      request.onupgradeneeded = function (e) {
+        console.debug("init db onupgradeneeded...");
+        storeName = "table1";
+        db = e.currentTarget.result;
+        if (db.objectStoreNames.contains(storeName)) {
+          db.deleteObjectStore(storeName);
+        }
+        db.createObjectStore(storeName, { keyPath: "name" });
+        store = new DBStore(storeName);
+      }
+
+      request.onsuccess = function (e) {
+        // Better use "this" than "req" to get the result to avoid problems with
+        // garbage collection.
+        // db = req.result;
+        db = this.result;
+        var version = db.version.
+        console.debug("init db DONE!");
+      }
+
+      request.onerror = function (e) {
+        console.log("Error");
+        console.dir(e);
+      }
+    }
+
+    DBEngine.prototype.fetchStore = function (storeName) {
+      if (db.objectStoreNames.contains(storeName)) {
+        return new DBStore(storeName);
+      } else {
+
+      }
+      db.createObjectStore(storeName, { keyPath: "name" });
+    }
+
+    function DBStore(name) {
+      this.name = name;
+    }
+
+    DBStore.prototype.initTran = function (opType) {
+      var transaction = db.transaction([this.name], opType);
+      transaction.oncomplete = function (event) {
+        console.debug("init transaction DONE!");
+      };
+      return transaction;
+    }
+
+    DBStore.prototype.add = function (dataObj) {
+      var tran = this.initTran("readwrite");
+      var request = tran.objectStore(this.name).add(dataObj);
+      request.onerror = function (e) {
+        console.debug("~add key:" + key + "failure.");
+      }
+    }
+
+    DBStore.prototype.update = function (key, value) {
+      //var tran = this.initTran("readwrite");
+      var tran = db.transaction([this.name], "readwrite");
+      var request = tran.objectStore(this.name).add(value, key);
+      request.onerror = function (e) {
+        console.debug("~update key:" + key + "failure.");
+      }
+    }
+
+    DBStore.prototype.delete = function (key) {
+      var tran = this.initTran("readwrite");
+      var request = tran.objectStore(this.name).delete(key);
+      request.onerror = function (e) {
+        console.debug("~delete key:" + key + "failure.");
+      }
+    }
+
+    DBStore.prototype.get = function (key, callback) {
+      var tran = this.initTran("readonly");
+      var request = tran.objectStore(this.name).get(key);
+      request.onsuccess = function (e) {
+        var value = evt.target.result;
+        if (value) {
+          callback(value);
+        }
+      }
+
+      request.onerror = function (e) {
+        console.debug("~get key:" + key + "failure.");
+      }
+    }
+
+    function IndexDBData(name, content) {
+      this.name = name;
+      this.content = content;
+    }
+  </script>
+  <script>
+    var engine;
+    var imageSrc;
+
+    function onInit() {
+      engine = new DBEngine("mydatabase1", 6);
+      engine.init();
+    }
+
+    function createStore() {
+      //store = engine.createStore("table1");
+      engine = new DBEngine("mydatabase1", 6);
+      engine.init();
+    }
+
+    function addImage() {
+      var data = new IndexDBData("image1", imageSrc);
+      store.add(data);
+    }
+
+    function deleteImage() {
+      store.delete("image1");
+    }
+
+    function updateImage() {
+      store.update("image1", imageSrc);
+    }
+
+    function getImage() {
+      var data = store.get("image1");
+      document.getElementById("img").src = data;
+    }
+  </script>
+</head>
+
+<body>
+  <input type="file" id="input"><br>
+  <button onclick="onInit()">Init Database</button><br>
+  <button onclick="createStore()">Create Store</button><br>
+  <image></image><button onclick="addImage()">Add image</button><br>
+  <button onclick="deleteImage()">Delete image</button><br>
+  <button onclick="updateImage()">Change image</button><br>
+  <button onclick="">Get image</button><br>
+  <img id="img"><br>
+
+  <script>
+                   document.getElementById("input").addEventListener("change", function () {
+                     var fileReader = new FileReader();
+                     fileReader.onloadend = function (e) {
+                       //document.getElementById("img").src = e.target.result;
+                       imageSrc = e.target.result;
+                     };
+                     fileReader.readAsDataURL(this.files[0]);
+                   }, false);
+  </script>
+</body>
+
+</html>
