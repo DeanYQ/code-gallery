@@ -1,0 +1,31 @@
+﻿{% extends "DeanSpace/layout.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <p class="horizental-center">
+            <img src="../../static/DeanSpace/images/signsuccess.png"/>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <input type="hidden" id="se" value="{{ auth.session_.session_id }}">
+    <input type="hidden" id="usr" value="{{ auth.user_.nickName}}" >
+    <div class="col-md-offset-4 col-md-4">
+        <p class="signup-success-messsage">
+            Sign up successfully! Welcome to my website.
+        </p>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        var session = $("#se").val();
+        var name = $("#usr").val();
+        setSession(session);
+        //document.cookie = "username=" + name + "; sessionid=" + escape(session);
+    }
+</script>
+
+{% endblock %}

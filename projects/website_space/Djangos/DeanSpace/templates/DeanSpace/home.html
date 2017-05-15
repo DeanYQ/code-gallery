@@ -1,0 +1,19 @@
+{% extends "DeanSpace/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="HomeTitle">Hello guy! Welcome to my website.</h1>
+    <input type="hidden" id="se" value="{{ auth.session_.session_id }}">
+    <input type="hidden" id="usr" value="{{ auth.user_.nickName}}" >
+</div>
+
+<script>
+    window.onload = function() {
+        var session = $("#se").val();
+        var name = $("#usr").val();
+        setSession(session);
+    }
+</script>
+
+{% endblock %}

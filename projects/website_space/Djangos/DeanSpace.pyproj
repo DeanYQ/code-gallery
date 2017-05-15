@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>ef79097c-6fd6-4d75-a843-11f48f00a01f</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>manageForVs.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>t</Name>
+    <RootNamespace>t</RootNamespace>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <PythonRunWebServerCommandArguments>runserver --settings Djangos.settings %SERVER_PORT% $(CommandLineArguments)</PythonRunWebServerCommandArguments>
+    <PythonDebugWebServerCommandArguments>runserver --noreload --settings Djangos.settings %SERVER_PORT% $(CommandLineArguments)</PythonDebugWebServerCommandArguments>
+    <PythonRunWebServerCommandType>script</PythonRunWebServerCommandType>
+    <PythonDebugWebServerCommandType>script</PythonDebugWebServerCommandType>
+    <UseIISExpress>true</UseIISExpress>
+    <DjangoSettingsModule>$(MSBuildProjectName).settings</DjangoSettingsModule>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="DeanSpace\" />
+    <Folder Include="DeanSpace\dataModels\" />
+    <Folder Include="DeanSpace\dataModels\" />
+    <Folder Include="DeanSpace\migrations\" />
+    <Folder Include="DeanSpace\migrations\" />
+    <Folder Include="DeanSpace\extensions\" />
+    <Folder Include="DeanSpace\sql\" />
+    <Folder Include="DeanSpace\sql\" />
+    <Folder Include="DeanSpace\static\" />
+    <Folder Include="DeanSpace\static\" />
+    <Folder Include="DeanSpace\static\DeanSpace\" />
+    <Folder Include="DeanSpace\static\DeanSpace\" />
+    <Folder Include="DeanSpace\static\DeanSpace\css\" />
+    <Folder Include="DeanSpace\static\DeanSpace\css\" />
+    <Folder Include="DeanSpace\static\DeanSpace\fonts\" />
+    <Folder Include="DeanSpace\static\DeanSpace\fonts\" />
+    <Folder Include="DeanSpace\static\DeanSpace\images\" />
+    <Folder Include="DeanSpace\static\DeanSpace\images\cards\" />
+    <Folder Include="DeanSpace\static\DeanSpace\images\skill\" />
+    <Folder Include="DeanSpace\static\DeanSpace\audio\" />
+    <Folder Include="DeanSpace\static\DeanSpace\scripts\" />
+    <Folder Include="DeanSpace\static\DeanSpace\scripts\" />
+    <Folder Include="DeanSpace\templates\" />
+    <Folder Include="DeanSpace\templates\" />
+    <Folder Include="DeanSpace\templates\DeanSpace\" />
+    <Folder Include="DeanSpace\templates\DeanSpace\" />
+    <Folder Include="Djangos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="db.sqlite3" />
+    <Content Include="DeanSpace\static\DeanSpace\audio\LonelyKing.mp3" />
+    <Content Include="DeanSpace\static\DeanSpace\css\bootstrap.css" />
+    <Content Include="DeanSpace\static\DeanSpace\css\bootstrap.css" />
+    <Content Include="DeanSpace\static\DeanSpace\css\jquery-ui.css" />
+    <Content Include="DeanSpace\static\DeanSpace\css\jquery-ui.structure.css" />
+    <Content Include="DeanSpace\static\DeanSpace\css\jquery-ui.theme.css" />
+    <Content Include="DeanSpace\static\DeanSpace\css\site.css" />
+    <Content Include="DeanSpace\static\DeanSpace\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="DeanSpace\static\DeanSpace\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="DeanSpace\static\DeanSpace\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="DeanSpace\static\DeanSpace\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="DeanSpace\static\DeanSpace\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="DeanSpace\static\DeanSpace\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="DeanSpace\static\DeanSpace\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="DeanSpace\static\DeanSpace\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="DeanSpace\static\DeanSpace\images\cards\archer.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\cards\assassin.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\cards\berserker.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\cards\caster.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\cards\lancer.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\cards\rider.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\cards\saber.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\signsuccess.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\000.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\001.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\002.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\003.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\004.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\005.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\006.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\007.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\008.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\009.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\010.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\011.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\012.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\013.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\014.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\015.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\016.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\017.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\018.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\019.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\020.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\021.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\022.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\023.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\024.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\025.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\026.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\027.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\028.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\029.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\030.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\031.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\032.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\033.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\034.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\035.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\036.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\037.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\038.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\039.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\040.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\041.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\042.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\043.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\044.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\045.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\046.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\047.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\048.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\049.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\050.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\051.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\052.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\053.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\054.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\055.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\056.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\057.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\058.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\059.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\060.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\061.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\062.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\063.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\064.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\065.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\066.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\067.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\068.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\069.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\070.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\071.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\072.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\073.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\074.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\075.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\076.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\077.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\078.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\079.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\080.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\081.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\082.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\skill\083.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\success_icon.png" />
+    <Content Include="DeanSpace\static\DeanSpace\images\warning_icon.png" />
+    <Content Include="DeanSpace\static\DeanSpace\scripts\ajaxhelper.js" />
+    <Content Include="DeanSpace\static\DeanSpace\scripts\bootstrap.js" />
+    <Content Include="DeanSpace\static\DeanSpace\scripts\bootstrap.js" />
+    <Content Include="DeanSpace\static\DeanSpace\scripts\jquery-1.10.2.js" />
+    <Content Include="DeanSpace\static\DeanSpace\scripts\jquery-1.10.2.js" />
+    <Content Include="DeanSpace\static\DeanSpace\scripts\jquery-ui.js" />
+    <Content Include="DeanSpace\static\DeanSpace\scripts\site.js" />
+    <Content Include="DeanSpace\static\DeanSpace\scripts\storage.js" />
+    <Content Include="DeanSpace\templates\DeanSpace\card.html" />
+    <Content Include="DeanSpace\templates\DeanSpace\game.html" />
+    <Content Include="DeanSpace\templates\DeanSpace\home.html" />
+    <Content Include="DeanSpace\templates\DeanSpace\home.html" />
+    <Content Include="DeanSpace\templates\DeanSpace\layout.html" />
+    <Content Include="DeanSpace\templates\DeanSpace\layout.html" />
+    <Content Include="DeanSpace\templates\DeanSpace\login.html" />
+    <Content Include="DeanSpace\templates\DeanSpace\login.html" />
+    <Content Include="DeanSpace\templates\DeanSpace\loginPartial.html" />
+    <Content Include="DeanSpace\templates\DeanSpace\logout.html" />
+    <Content Include="DeanSpace\templates\DeanSpace\signup.html" />
+    <Content Include="DeanSpace\templates\DeanSpace\signupSuccess.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DeanSpace\admin.py" />
+    <Compile Include="DeanSpace\admin.py" />
+    <Compile Include="DeanSpace\apps.py" />
+    <Compile Include="DeanSpace\apps.py" />
+    <Compile Include="DeanSpace\dataModels\authorization.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeanSpace\dataModels\session.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeanSpace\dataModels\users.py" />
+    <Compile Include="DeanSpace\dataModels\users.py" />
+    <Compile Include="DeanSpace\dataModels\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeanSpace\extensions\stringEx.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeanSpace\extensions\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeanSpace\migrations\__init__.py" />
+    <Compile Include="DeanSpace\migrations\__init__.py" />
+    <Compile Include="DeanSpace\models.py" />
+    <Compile Include="DeanSpace\models.py" />
+    <Compile Include="DeanSpace\sql\sqlCommand.py" />
+    <Compile Include="DeanSpace\sql\sqlCommand.py" />
+    <Compile Include="DeanSpace\sql\sqlConnection.py" />
+    <Compile Include="DeanSpace\sql\sqlConnection.py" />
+    <Compile Include="DeanSpace\sql\sqlParameter.py" />
+    <Compile Include="DeanSpace\sql\sqlParameter.py" />
+    <Compile Include="DeanSpace\sql\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeanSpace\tests.py" />
+    <Compile Include="DeanSpace\tests.py" />
+    <Compile Include="DeanSpace\views.py" />
+    <Compile Include="DeanSpace\views.py" />
+    <Compile Include="DeanSpace\__init__.py" />
+    <Compile Include="DeanSpace\__init__.py" />
+    <Compile Include="Djangos\settings.py" />
+    <Compile Include="Djangos\settings.py" />
+    <Compile Include="Djangos\urls.py" />
+    <Compile Include="Djangos\urls.py" />
+    <Compile Include="Djangos\wsgi.py" />
+    <Compile Include="Djangos\wsgi.py" />
+    <Compile Include="Djangos\__init__.py" />
+    <Compile Include="Djangos\__init__.py" />
+    <Compile Include="manageForVs.py" />
+  </ItemGroup>
+  <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
+  <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8326/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

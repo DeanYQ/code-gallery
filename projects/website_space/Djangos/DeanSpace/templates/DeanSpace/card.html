@@ -1,0 +1,38 @@
+﻿{% extends "DeanSpace/layout.html" %}
+
+{% block content %}
+
+<div class="horizental-center">
+    <img class="picture" src="../../static/DeanSpace/images/cards/saber.png"/>
+    <img src="../../static/DeanSpace/images/cards/archer.png"       onclick="onImageClick(this)"/>
+    <img src="../../static/DeanSpace/images/cards/lancer.png"       onclick="onImageClick(this)"/>
+    <img src="../../static/DeanSpace/images/cards/rider.png"        onclick="onImageClick(this)"/>
+    <img src="../../static/DeanSpace/images/cards/berserker.png"    onclick="onImageClick(this)"/>
+    <img src="../../static/DeanSpace/images/cards/assassin.png"     onclick="onImageClick(this)"/>
+    <img src="../../static/DeanSpace/images/cards/caster.png"       onclick="onImageClick(this)"/>
+</div>
+<audio autoplay loop src="../../static/DeanSpace/audio/LonelyKing.mp3"></audio>
+
+<script>
+    var selectObj;
+    var isHandling = false;
+
+    function onImageClick(obj) {
+        // Run the effect
+        if (!isHandling) {
+            isHandling = true;
+            selectObj = obj;
+            $(obj).effect("puff", null, 500, callback);
+        }
+    };
+
+    // Callback function to bring a hidden box back
+    function callback() {
+        setTimeout(function () {
+            $(selectObj).fadeIn(500);
+            isHandling = false;
+        }, 0);
+    };
+</script>
+
+{% endblock %}

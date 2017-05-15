@@ -1,0 +1,253 @@
+{% extends "DeanSpace/layout.html" %}
+
+{% block content %}
+
+<h2>Please register a new account.</h2>
+<div class="row">
+    <div class="col-md-10">
+        <section id="registerForm">
+            <form action="" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <hr />
+                <div class="form-group">
+                    <label for="id_email" class="col-md-3 control-label required-element">E-mail</label>
+                    <div class="col-md-9">
+                        <input type="email" id="id_email" name="email" class="form-control input-max-Length" placeholder="input your email" onkeyup="onEmailChange(this)" onblur="onLostFocus(this)" />
+                        <img id="imgEmailState"/> <span id="txtEmailState" class="form-tip"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="id_nickname" class="col-md-3 control-label required-element">Nick name</label>
+                    <div class="col-md-9">
+                        <input type="text" id="id_nickname" name="nickName" class="form-control input-max-Length" placeholder="input your nick name" onkeyup=" onNicknameChange(this)" onblur="onLostFocus(this)" />
+                        <img id="imgNickNameState"/> <span id="txtNickNameState" class="form-tip"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="id_enterPwd" class="col-md-3 control-label required-element">Enter your password</label>
+                    <div class="col-md-9">
+                        <input type="password" id="id_enterPwd" name="pwd" class="form-control input-max-Length" placeholder="enter your password" onkeyup="onPwdChange(this)" onblur="onLostFocus(this)" />
+                        <img id="imgPwdState"/> <span id="txtPwdState" class="form-tip"></span>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="id_confirmPwd" class="col-md-3 control-label required-element">Confirm your password</label>
+                    <div class="col-md-9">
+                        <input type="password" id="id_confirmPwd" name="confirmPwd" class="form-control input-max-Length" placeholder="confirm your password" onkeyup="onCfmPwdChange(this)" onblur="onLostFocus(this)" />
+                        <img id="imgCfmpwdState"/> <span id="txtCfmpwdState" class="form-tip"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="hidden" name="next" value="/" />
+                        <input id="btnSubmit" type="submit" value="Sign up" class="btn btn-default" disabled="disabled"/>
+                    </div>
+                </div>
+
+                {% if hasError != None and hasError %}
+                <p class="validation-summary-errors col-md-offset-3 col-md-9">{{ errorMessage }}</p>
+                {% endif %}
+            </form>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialSignUpForm"></section>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% load staticfiles %}
+<script src="{% static 'DeanSpace/scripts/ajaxhelper.js' %}"></script>
+<script>
+    var curObj = undefined;
+
+    var ismailValid = false;
+    var isnickNameValid = false;
+    var ispwdValid = false;
+    var iscfmPwdValid = false;
+
+    function onEmailChange(obj) {
+        if (isEmpty("id_email")) {
+            ismailValid = false;
+            onUpdateRegisterButton();
+        }
+    }
+
+    function onNicknameChange(obj) {
+        if (isEmpty("id_nickname")) {
+            isnickNameValid = false;
+            onUpdateRegisterButton();
+        }
+    }
+
+    function onPwdChange(obj) {
+        var pwd = obj.value;
+        var img = document.getElementById("imgPwdState");
+
+        if (isEmpty("id_enterPwd")) {
+            ispwdValid = false;
+            setValidtionIcon(img, false);
+            $("#txtPwdState").text("The password can't be empty.").css("color", "Red");
+            $(obj.parentNode).removeClass("has-success").addClass("has-error");
+            onUpdateRegisterButton();
+            return;
+        }
+
+        if (pwd.length < 6) {
+            ispwdValid = false;
+            setValidtionIcon(img, false);
+            $("#txtPwdState").text("The password length can't be less than 6.").css("color", "Red");
+            $(obj.parentNode).removeClass("has-success").addClass("has-error");
+            onUpdateRegisterButton();
+            return;
+        }
+
+        ispwdValid = true;
+        setValidtionIcon(img, true);
+        $("#txtPwdState").text("Success").css("color", "Green");
+        $(obj.parentNode).addClass("has-success").removeClass("has-error");
+        iscfmPwdValid = true;
+
+        // check confirm password valid status
+        var cfm = document.getElementById("id_confirmPwd");
+        if (ispwdValid && cfm != null && cfm.value == pwd) {
+            setValidtionIcon(img, true);
+            $("#txtCfmpwdState").text("Success").css("color", "Green");
+            $(obj.parentNode).addClass("has-success").removeClass("has-error");
+            iscfmPwdValid = true;
+        }
+
+        onUpdateRegisterButton();
+    }
+
+    function onCfmPwdChange(obj) {
+        if (isEmpty("id_confirmPwd")) {
+            iscfmPwdValid = false;
+        }
+
+        var pwd = document.getElementById("id_enterPwd").value;
+        var img = document.getElementById("imgCfmpwdState");
+        if (pwd != obj.value) {
+            setValidtionIcon(img, false);
+            $("#txtCfmpwdState").text("The passwords you enter are inconsistent.").css("color", "Red");
+            $(obj.parentNode).removeClass("has-success").addClass("has-error");
+            iscfmPwdValid = false;
+        }
+        else {
+            setValidtionIcon(img, true);
+            $("#txtCfmpwdState").text("Success").css("color", "Green");
+            $(obj.parentNode).addClass("has-success").removeClass("has-error");
+            iscfmPwdValid = true;
+        }
+        onUpdateRegisterButton();
+    }
+
+    function onUpdateRegisterButton() {
+        if (ismailValid && isnickNameValid && ispwdValid && iscfmPwdValid)
+            setSumbitDisable(false);
+        else
+            setSumbitDisable(true);
+    }
+
+    function isEmpty(element) {
+        var email = document.getElementById(element);
+        if (email != null && email.value == '') {
+            setSumbitDisable(true);
+            return true;
+        }
+        return false;
+    }
+
+    function setSumbitDisable(value) {
+        var sumbit = document.getElementById('btnSubmit');
+        if (sumbit != null) {
+            sumbit.disabled = value;
+        }
+
+        //document.getElementById("removeButton").disabled = false;
+        //$("#removeButton").removeAttr("disabled");          
+        //$("#removeButton").attr("disabled","disabled");    
+    }
+
+    function onLostFocus(obj) {
+        curObj = obj;
+        var request = createAjaxRequeset();
+        var url = 'signup.html?validation=1&type=';
+        if (curObj != null && curObj.id != "") {
+            url = url + curObj.id + '&value=' + curObj.value;
+            if (request != null) {
+                request.open("GET", url, true);
+                request.onreadystatechange = validationStateChange;
+                request.send(null);
+            }
+        }
+    }
+
+    function updateValidState(id, state) {
+        switch (id) {
+            case "id_email": ismailValid = state; break;
+            case "id_nickname": isnickNameValid = state; break;
+        }
+    }
+
+    function validationStateChange() {
+        if (request.readyState == 4) {
+            if (request.status == 200) {
+                if (curObj != undefined && curObj != null) {
+                    var id = curObj.id;
+                    var icon = undefined;
+                    var span = undefined;
+                    switch (id) {
+                        case "id_email":
+                            icon = document.getElementById("imgEmailState");
+                            span = $("#txtEmailState");
+                            break;
+                        case "id_nickname":
+                            icon = document.getElementById("imgNickNameState");
+                            span = $("#txtNickNameState");
+                            break;
+                            //case "id_enterPwd":
+                            //    icon = document.getElementById("imgPwdState");
+                            //    span = $("#txtPwdState");
+                            //    break;
+                            //case "id_confirmPwd":
+                            //    icon = document.getElementById("imgCfmpwdState");
+                            //    span = $("#txtCfmpwdState");
+                            //    break;
+                        default:
+                            return;
+                    }
+
+                    if (request.responseText == '') {
+                        setValidtionIcon(icon, true);
+                        span.text("Success").css("color", "Green");
+                        $(curObj.parentNode).addClass("has-success").removeClass("has-error");
+                        updateValidState(id, true);
+                    }
+                    else {
+                        setValidtionIcon(icon, false);
+                        span.text(request.responseText).css("color", "Red");
+                        $(curObj.parentNode).removeClass("has-success").addClass("has-error");
+                        updateValidState(id, false);
+                    }
+
+                    onUpdateRegisterButton();
+                }
+            }
+        }
+    }
+
+    function setValidtionIcon(img, success) {
+        if (img != null) {
+            if (success) {
+                img.src = "../../static/DeanSpace/images/success_icon.png";
+            }
+            else {
+                img.src = "../../static/DeanSpace/images/warning_icon.png"
+            }
+        }
+    }
+
+</script>
+{% endblock %}

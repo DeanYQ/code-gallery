@@ -1,0 +1,50 @@
+{% extends "DeanSpace/layout.html" %}
+
+{% block content %}
+
+<h2>Please login with your account.</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            <form action="" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <hr />
+                <div class="form-group">
+                    <label for="id_email" class="col-md-3 control-label">E-mail</label>
+                    <div class="col-md-9">
+                        <input id="id_email" name="email" type="text" class="form-control input-max-Length" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="id_password" class="col-md-3 control-label">Password</label>
+                    <div class="col-md-9">
+                        <input id="id_password" name="pwd" type="password" class="form-control input-max-Length">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="hidden" name="next" value="/" />
+                        <input type="submit" value="Log in" class="btn btn-default" />
+                        <a href="{% url 'signup' %}" class="btn btn-default">Register</a>
+                    </div>
+                </div>
+
+                {% if hasError != None and hasError %}
+                <p class="validation-summary-errors col-md-offset-3 col-md-9">{{ errorMessage }}</p>
+                {% endif %}
+            </form>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm"></section>
+    </div>
+</div>
+
+<script>
+    function redriectRegister() {
+
+    }
+</script>
+
+{% endblock %}
+

@@ -1,0 +1,413 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.HomeTitle {
+    font-size: large;
+    font-style: italic;
+}
+
+.input-max-Length {
+    max-width: 280px;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.required-element:after {
+    color: #ff0000;
+    content: "*";
+}
+
+.site-message {
+    font-size: large;
+}
+
+.div-center {
+    margin: 0px auto;
+}
+
+.form-tip {
+    height: 14px;
+    font-size: small;
+    color: #ff0000;
+}
+
+.horizental-center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.signup-success-messsage {
+    text-align: center;
+    font-style: italic;
+    font-size: xx-large;
+    color: green;
+}
+
+@keyframes Animator {
+    0.00%, 1.20% {
+        background: url(../images/skill/000.png) no-repeat right bottom;
+    }
+
+    1.20%, 2.41% {
+        background: url(../images/skill/001.png) no-repeat right bottom;
+    }
+
+    2.41%, 3.61% {
+        background: url(../images/skill/002.png) no-repeat right bottom;
+    }
+
+    3.61%, 4.82% {
+        background: url(../images/skill/003.png) no-repeat right bottom;
+    }
+
+    4.82%, 6.02% {
+        background: url(../images/skill/004.png) no-repeat right bottom;
+    }
+
+    6.02%, 7.23% {
+        background: url(../images/skill/005.png) no-repeat right bottom;
+    }
+
+    7.23%, 8.43% {
+        background: url(../images/skill/006.png) no-repeat right bottom;
+    }
+
+    8.43%, 9.64% {
+        background: url(../images/skill/007.png) no-repeat right bottom;
+    }
+
+    9.64%, 10.84% {
+        background: url(../images/skill/008.png) no-repeat right bottom;
+    }
+
+    10.84%, 12.05% {
+        background: url(../images/skill/009.png) no-repeat right bottom;
+    }
+
+    12.05%, 13.25% {
+        background: url(../images/skill/010.png) no-repeat right bottom;
+    }
+
+    13.25%, 14.46% {
+        background: url(../images/skill/011.png) no-repeat right bottom;
+    }
+
+    14.46%, 15.66% {
+        background: url(../images/skill/012.png) no-repeat right bottom;
+    }
+
+    15.66%, 16.87% {
+        background: url(../images/skill/013.png) no-repeat right bottom;
+    }
+
+    16.87%, 18.07% {
+        background: url(../images/skill/014.png) no-repeat right bottom;
+    }
+
+    18.07%, 19.28% {
+        background: url(../images/skill/015.png) no-repeat right bottom;
+    }
+
+    19.28%, 20.48% {
+        background: url(../images/skill/016.png) no-repeat right bottom;
+    }
+
+    20.48%, 21.69% {
+        background: url(../images/skill/017.png) no-repeat right bottom;
+    }
+
+    21.69%, 22.89% {
+        background: url(../images/skill/018.png) no-repeat right bottom;
+    }
+
+    22.89%, 24.10% {
+        background: url(../images/skill/019.png) no-repeat right bottom;
+    }
+
+    24.10%, 25.30% {
+        background: url(../images/skill/020.png) no-repeat right bottom;
+    }
+
+    25.30%, 26.51% {
+        background: url(../images/skill/021.png) no-repeat right bottom;
+    }
+
+    26.51%, 27.71% {
+        background: url(../images/skill/022.png) no-repeat right bottom;
+    }
+
+    27.71%, 28.92% {
+        background: url(../images/skill/023.png) no-repeat right bottom;
+    }
+
+    28.92%, 30.12% {
+        background: url(../images/skill/024.png) no-repeat right bottom;
+    }
+
+    30.12%, 31.33% {
+        background: url(../images/skill/025.png) no-repeat right bottom;
+    }
+
+    31.33%, 32.53% {
+        background: url(../images/skill/026.png) no-repeat right bottom;
+    }
+
+    32.53%, 33.73% {
+        background: url(../images/skill/027.png) no-repeat right bottom;
+    }
+
+    33.73%, 34.94% {
+        background: url(../images/skill/028.png) no-repeat right bottom;
+    }
+
+    34.94%, 36.14% {
+        background: url(../images/skill/029.png) no-repeat right bottom;
+    }
+
+    36.14%, 37.35% {
+        background: url(../images/skill/030.png) no-repeat right bottom;
+    }
+
+    37.35%, 38.55% {
+        background: url(../images/skill/031.png) no-repeat right bottom;
+    }
+
+    38.55%, 39.76% {
+        background: url(../images/skill/032.png) no-repeat right bottom;
+    }
+
+    39.76%, 40.96% {
+        background: url(../images/skill/033.png) no-repeat right bottom;
+    }
+
+    40.96%, 42.17% {
+        background: url(../images/skill/034.png) no-repeat right bottom;
+    }
+
+    42.17%, 43.37% {
+        background: url(../images/skill/035.png) no-repeat right bottom;
+    }
+
+    43.37%, 44.58% {
+        background: url(../images/skill/036.png) no-repeat right bottom;
+    }
+
+    44.58%, 45.78% {
+        background: url(../images/skill/037.png) no-repeat right bottom;
+    }
+
+    45.78%, 46.99% {
+        background: url(../images/skill/038.png) no-repeat right bottom;
+    }
+
+    46.99%, 48.19% {
+        background: url(../images/skill/039.png) no-repeat right bottom;
+    }
+
+    48.19%, 49.40% {
+        background: url(../images/skill/040.png) no-repeat right bottom;
+    }
+
+    49.40%, 50.60% {
+        background: url(../images/skill/041.png) no-repeat right bottom;
+    }
+
+    50.60%, 51.81% {
+        background: url(../images/skill/042.png) no-repeat right bottom;
+    }
+
+    51.81%, 53.01% {
+        background: url(../images/skill/043.png) no-repeat right bottom;
+    }
+
+    53.01%, 54.22% {
+        background: url(../images/skill/044.png) no-repeat right bottom;
+    }
+
+    54.22%, 55.42% {
+        background: url(../images/skill/045.png) no-repeat right bottom;
+    }
+
+    55.42%, 56.63% {
+        background: url(../images/skill/046.png) no-repeat right bottom;
+    }
+
+    56.63%, 57.83% {
+        background: url(../images/skill/047.png) no-repeat right bottom;
+    }
+
+    57.83%, 59.04% {
+        background: url(../images/skill/048.png) no-repeat right bottom;
+    }
+
+    59.04%, 60.24% {
+        background: url(../images/skill/049.png) no-repeat right bottom;
+    }
+
+    60.24%, 61.45% {
+        background: url(../images/skill/050.png) no-repeat right bottom;
+    }
+
+    61.45%, 62.65% {
+        background: url(../images/skill/051.png) no-repeat right bottom;
+    }
+
+    62.65%, 63.86% {
+        background: url(../images/skill/052.png) no-repeat right bottom;
+    }
+
+    63.86%, 65.06% {
+        background: url(../images/skill/053.png) no-repeat right bottom;
+    }
+
+    65.06%, 66.27% {
+        background: url(../images/skill/054.png) no-repeat right bottom;
+    }
+
+    66.27%, 67.47% {
+        background: url(../images/skill/055.png) no-repeat right bottom;
+    }
+
+    67.47%, 68.67% {
+        background: url(../images/skill/056.png) no-repeat right bottom;
+    }
+
+    68.67%, 69.88% {
+        background: url(../images/skill/057.png) no-repeat right bottom;
+    }
+
+    69.88%, 71.08% {
+        background: url(../images/skill/058.png) no-repeat right bottom;
+    }
+
+    71.08%, 72.29% {
+        background: url(../images/skill/059.png) no-repeat right bottom;
+    }
+
+    72.29%, 73.49% {
+        background: url(../images/skill/060.png) no-repeat right bottom;
+    }
+
+    73.49%, 74.70% {
+        background: url(../images/skill/061.png) no-repeat right bottom;
+    }
+
+    74.70%, 75.90% {
+        background: url(../images/skill/062.png) no-repeat right bottom;
+    }
+
+    75.90%, 77.11% {
+        background: url(../images/skill/063.png) no-repeat right bottom;
+    }
+
+    77.11%, 78.31% {
+        background: url(../images/skill/064.png) no-repeat right bottom;
+    }
+
+    78.31%, 79.52% {
+        background: url(../images/skill/065.png) no-repeat right bottom;
+    }
+
+    79.52%, 80.72% {
+        background: url(../images/skill/066.png) no-repeat right bottom;
+    }
+
+    80.72%, 81.93% {
+        background: url(../images/skill/067.png) no-repeat right bottom;
+    }
+
+    81.93%, 83.13% {
+        background: url(../images/skill/068.png) no-repeat right bottom;
+    }
+
+    83.13%, 84.34% {
+        background: url(../images/skill/069.png) no-repeat right bottom;
+    }
+
+    84.34%, 85.54% {
+        background: url(../images/skill/070.png) no-repeat right bottom;
+    }
+
+    85.54%, 86.75% {
+        background: url(../images/skill/071.png) no-repeat right bottom;
+    }
+
+    86.75%, 87.95% {
+        background: url(../images/skill/072.png) no-repeat right bottom;
+    }
+
+    87.95%, 89.16% {
+        background: url(../images/skill/073.png) no-repeat right bottom;
+    }
+
+    89.16%, 90.36% {
+        background: url(../images/skill/074.png) no-repeat right bottom;
+    }
+
+    90.36%, 91.57% {
+        background: url(../images/skill/075.png) no-repeat right bottom;
+    }
+
+    91.57%, 92.77% {
+        background: url(../images/skill/076.png) no-repeat right bottom;
+    }
+
+    92.77%, 93.98% {
+        background: url(../images/skill/077.png) no-repeat right bottom;
+    }
+
+    93.98%, 95.18% {
+        background: url(../images/skill/078.png) no-repeat right bottom;
+    }
+
+    95.18%, 96.39% {
+        background: url(../images/skill/079.png) no-repeat right bottom;
+    }
+
+    96.39%, 97.59% {
+        background: url(../images/skill/080.png) no-repeat right bottom;
+    }
+
+    97.59%, 98.80% {
+        background: url(../images/skill/081.png) no-repeat right bottom;
+    }
+
+    98.80%, 100.00% {
+        background: url(../images/skill/082.png) no-repeat right bottom;
+    }
+}
+
+.animate1 {
+    width: 800px;
+    height: 600px;
+    background-image: url(images/skill/10-1.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    animation-name: Animator;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+.picture {
+    width: auto;
+    height: auto;
+    box-shadow: -5px 5px 5px #aaa;
+    transform-style: preserve-3d;
+    transition: all 1.0s linear;
+}
+
+.picture:hover {
+    transform: rotateY(180deg)
+    /*transform: rotate3d( 1,1,1,360)*/
+}
+
