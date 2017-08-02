@@ -7,7 +7,8 @@ Install-Package NHunspell -Version 1.2.5554.16953
 
 ## Official Webite
 
-[Main Page] http://www.crawler-lib.net/nhunspell
+[Main Page](http://www.crawler-lib.net/nhunspell)
+
 [Example Page] http://www.crawler-lib.net/csharp-code-samples-nhunspell
 
 ## Other Link -- To Get the dictionary
