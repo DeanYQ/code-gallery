@@ -1,0 +1,3 @@
+http://cainosullivan.com/SmtpServer/
+https://technet.microsoft.com/en-us/library/cc772058(v=ws.10).aspx
+https://docs.microsoft.com/en-us/iis/application-frameworks/install-and-configure-php-on-iis/configure-smtp-e-mail-in-iis-7-and-above
