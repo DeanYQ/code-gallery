@@ -7,3 +7,5 @@ https://technet.microsoft.com/en-us/library/cc754007(v=ws.10).aspx
 https://technet.microsoft.com/en-us/library/cc772058(v=ws.10).aspx
 
 appcmd set config /commit:WEBROOT /section:smtp /from: string /deliveryMethod:network /network.port: int /network.defaultCredentials:True|False /network.host:string /network.userName:string /network.password:string
+
+https://wiki.esko.com/display/KBA/KB78618381%3A+How+to+Configure+IIS+SMTP+Server+to+forward+emails+using+a+Gmail+account
