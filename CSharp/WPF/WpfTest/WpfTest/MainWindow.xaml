@@ -1,0 +1,54 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="WpfTest.MainWindow"
+	x:Name="Window"
+	Title="MainWindow"
+	UseLayoutRounding="True"
+ >
+	<Window.Resources>
+        <MediaElement x:Key="video" Source="bg_sky.mp4" Stretch="Fill" LoadedBehavior="Manual"/>
+	</Window.Resources>
+	
+	<Grid x:Name="LayoutRoot" Background="#FFC7DAE5">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+		<Border x:Name="orgin" BorderBrush="DarkGray" BorderThickness="1"   Grid.Row="1" CornerRadius="2" >
+		</Border>
+		<Border  BorderBrush="Black" BorderThickness="1"  Grid.Row="2" CornerRadius="2" Background="Black" >
+            <Rectangle x:Name="reflector" VerticalAlignment="Stretch" Stretch="Fill" HorizontalAlignment="Stretch">
+            </Rectangle>
+		</Border>
+		<Border x:Name="controls" BorderThickness="3" CornerRadius="3" >
+			<Border.BorderBrush>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF98BBD2" Offset="0"/>
+					<GradientStop Color="White" Offset="1"/>
+					<GradientStop Color="#FFBDD3E2" Offset="0.648"/>
+					<GradientStop Color="#FFD3E1EB" Offset="0.258"/>
+				</LinearGradientBrush>
+			</Border.BorderBrush>
+			<Rectangle>
+				<Rectangle.Fill>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#CCFFFFFF" Offset="1"/>
+						<GradientStop Color="#33FFFFFF"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+		</Border>
+		<StackPanel Orientation="Horizontal" >
+			<Button x:Name="tme" Content="Test MediaElement" Width="125" Height="30" Margin="50,0,20,0" Click="tme_Click"/>
+			<Button x:Name="tmp" Content="Test MediaPlayer" Width="125" Height="30" Margin="0,10" Click="tmp_Click"/>
+			<Button x:Name="start" Content="Start" Width="75" Height="30" Margin="20,10,0,10" Click="start_Click" />
+            <Button x:Name="stop" Content="Stop" Width="75" Height="30" Margin="20,10,0,10" Click="stop_Click" />
+            <Button x:Name="resume" Content="Resume" Width="75" Height="30" Margin="20,10,0,10" Click="resume_Click" />
+            <Button x:Name="pause" Content="Pause" Width="75" Height="30" Margin="20,10,0,10" Click="pause_Click" />
+		</StackPanel>
+		
+	</Grid>
+</Window>
